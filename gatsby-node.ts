@@ -13,6 +13,7 @@ export const onPreInit: GatsbyNode["onPreInit"] = async () => {
 }
 
 export const createPages: GatsbyNode["createPages"] = async ({ actions }) => {
+  console.log(1, locales)
   locales.forEach(locale => {
     actions.createPage({
       path: locale.id,

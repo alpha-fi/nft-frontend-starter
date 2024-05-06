@@ -11,6 +11,7 @@ const Section: React.FC<{
   className?: string,
   image?: string | ImageProps
   video?: string | VideoProps
+  children: any
 }> = ({
   backgroundColor, backgroundImage, className, image, video, children
 }) => (

@@ -1,9 +1,9 @@
 import React from "react"
 import ReactMarkdown from "react-markdown"
-import { ReactMarkdownOptions } from "react-markdown/lib/react-markdown"
+import { Options } from "react-markdown"
 
-const Markdown: React.FC<ReactMarkdownOptions> = (props) => (
-  <ReactMarkdown {...props} linkTarget="_blank" />
+const Markdown: React.FC<Options> = (props) => (
+  <ReactMarkdown {...props} urlTransform={() => "_blank"} />
 )
 
 export default Markdown

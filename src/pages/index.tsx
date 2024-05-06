@@ -34,6 +34,7 @@ const IndexPage = () => {
           <Link to={`/${locale.id}/`}>{locale.viewIn}</Link>
         </p>
       ))}
+      
     </Layout>
   )
 }

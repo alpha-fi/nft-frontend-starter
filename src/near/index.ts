@@ -1,10 +1,17 @@
 import * as naj from "near-api-js"
 import settings from "../../config/settings.json"
+import "@near-wallet-selector/modal-ui/styles.css";
+
 
 const { contractName } = settings
 
+
+
 // TODO: remove pending https://github.com/near/near-api-js/issues/757
 import { Buffer } from "buffer"
+import { setupWalletSelector } from "@near-wallet-selector/core";
+import { setupMyNearWallet } from "@near-wallet-selector/my-near-wallet";
+import { setupModal } from "@near-wallet-selector/modal-ui";
 if (typeof window !== "undefined") window.Buffer = Buffer
 if (typeof global !== "undefined") global.Buffer = Buffer
 
@@ -45,6 +52,20 @@ export const near = new naj.Near({
  */
 export const wallet = new naj.WalletConnection(near)
 
-export function signIn() {
-  wallet.requestSignIn({ contractId: settings.contractName })
+export async function signIn() {
+  // wallet.requestSignIn({ contractId: settings.contractName })
+  const selector = await setupWalletSelector({
+    network: "mainnet",
+    modules: [
+      setupMyNearWallet(),
+    ],
+  });
+
+  const modal = setupModal(selector, {
+    contractId: contractName
+  });
+  console.log("Showing modal")
+
+
+  modal.show()
 }

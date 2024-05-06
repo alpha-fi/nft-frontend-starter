@@ -56,7 +56,7 @@ const MyNFTs: React.FC<{
   const nextSrc = nfts.length > 1 ? nfts[(photoIndex + 1) % nfts.length].media : undefined
   const prevSrc = nfts.length > 1 ? nfts[(photoIndex + nfts.length - 1) % nfts.length].media : undefined
 
-  return createPortal(
+  return (
     <>
       <div className={css.myNfts}>
         <div className="container">
@@ -110,8 +110,7 @@ const MyNFTs: React.FC<{
           }
         />
       )}
-    </>,
-    portalElement.current
+    </>
   )
 }
 
