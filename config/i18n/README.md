@@ -57,9 +57,9 @@ In the example files contained here, you'll see that the `hero` i18n data is des
 
 As you may have guessed, a more specific setting will override a more general one. So here, before the sale has started (`saleClosed`):
 
-* Someone who is signed out will see the `ps` included in the root: "Misfits drop at SALE_START!"
-* While someone who is signed in will see both the sale start time and the presale start time, with a link to the project's Discord to become a VIP
-* And someone who is already a VIP will see only the presale start time, and their Call To Action button (CTA) will add the presale time to their calendar, rather than the sale time.
+- Someone who is signed out will see the `ps` included in the root: "Misfits drop at SALE_START!"
+- While someone who is signed in will see both the sale start time and the presale start time, with a link to the project's Discord to become a VIP
+- And someone who is already a VIP will see only the presale start time, and their Call To Action button (CTA) will add the presale time to their calendar, rather than the sale time.
 
 And then, after the public sale has started (`saleOpen`), almost everyone sees the same thing. "Minting has begun! Mint One!" The only exception here is that people who are not yet signed in will get signed in, when they click the Mint One button, rather than immediately minting one.
 

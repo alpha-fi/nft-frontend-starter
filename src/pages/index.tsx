@@ -15,11 +15,11 @@ const IndexPage = () => {
     const preferredLocale = window.navigator.language
 
     let matchingLocale = locales.find(
-      l => l.id.replace("_", "-") === preferredLocale
+      l => l.id.replace("_", "-") === preferredLocale,
     )
     if (!matchingLocale)
       matchingLocale = locales.find(
-        l => l.id === preferredLocale.replace(/-[A-Z]{2}/, "")
+        l => l.id === preferredLocale.replace(/-[A-Z]{2}/, ""),
       )
 
     if (matchingLocale) {
@@ -28,7 +28,7 @@ const IndexPage = () => {
   }, [])
 
   return (
-    <Layout style={{ justifyContent: 'space-around', textAlign: 'center' }}>
+    <Layout style={{ justifyContent: "space-around", textAlign: "center" }}>
       {locales.map(locale => (
         <p key={locale.id}>
           <Link to={`/${locale.id}/`}>{locale.viewIn}</Link>

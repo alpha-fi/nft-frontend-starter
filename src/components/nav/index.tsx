@@ -9,12 +9,11 @@ import MyNFTs from "../../components/my-nfts"
 import Image from "../image"
 
 function signOut() {
-  wallet.signOut()
-  window.location.replace(window.location.origin + window.location.pathname)
+  wallet.logout()
 }
 
 export default function Nav() {
-  const currentUser = wallet.getAccountId()
+  const currentUser = wallet.accountId
   const { locale } = useLocales()
   const { nfts } = useTenk()
   const [showNFTs, setShowNFTs] = useState(false)
@@ -27,7 +26,13 @@ export default function Nav() {
         <div className={`container ${css.content}`}>
           <div className={css.social}>
             {settings.social.map(({ href, img, alt }) => (
-              <a href={href} target="_blank" rel="noopener noreferrer" title={alt} key={alt}>
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={alt}
+                key={alt}
+              >
                 <Image src={img} alt={alt} />
               </a>
             ))}
@@ -50,7 +55,9 @@ export default function Nav() {
                 />
               </span>
             ) : (
-              <button className="secondary" onClick={signIn}>{locale.connectWallet}</button>
+              <button className="secondary" onClick={signIn}>
+                {locale.connectWallet}
+              </button>
             )}
           </div>
         </div>

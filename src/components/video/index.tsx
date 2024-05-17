@@ -1,5 +1,5 @@
-import React from 'react'
-import { withPrefix } from 'gatsby'
+import React from "react"
+import { withPrefix } from "gatsby"
 import useVideoData from "../../hooks/useVideoData"
 
 export type VideoProps = React.DetailedHTMLProps<

@@ -1,20 +1,23 @@
 import * as React from "react"
 import { convertToBgImage } from "gbimage-bridge"
-import GatsbyBackgroundImage, { IBackgroundImageProps } from 'gatsby-background-image'
+import GatsbyBackgroundImage, {
+  IBackgroundImageProps,
+} from "gatsby-background-image"
 import useImageData from "../hooks/useImageData"
 
-type Props = IBackgroundImageProps & JSX.IntrinsicElements['div'] & {
-  src?: string
-  /**
-   * Could add more; gatsby-background-image allows any of JSX.IntrinsicElements, but that doesn't type-check well
-   */
-  Tag: 'section' | 'div' | 'header' | 'footer' | 'aside'
-}
+type Props = IBackgroundImageProps &
+  JSX.IntrinsicElements["div"] & {
+    src?: string
+    /**
+     * Could add more; gatsby-background-image allows any of JSX.IntrinsicElements, but that doesn't type-check well
+     */
+    Tag: "section" | "div" | "header" | "footer" | "aside"
+  }
 
 /**
  * Same as `Props`, but `src` must be present
  */
-type StrictProps = Omit<Props, 'src'> & {
+type StrictProps = Omit<Props, "src"> & {
   src: string
 }
 
@@ -28,7 +31,7 @@ type StrictProps = Omit<Props, 'src'> & {
  * @param Tag HTML Element to use. @default "div"
  * @param src filename of an image in `config/images`. If undefined, `Tag` will be rendered with all children and other props directly, with no background-image styling.
  */
-const BackgroundImage: React.FC<Props> = ({ src, Tag = 'div', ...props }) => {
+const BackgroundImage: React.FC<Props> = ({ src, Tag = "div", ...props }) => {
   if (!src) return <Tag {...props} />
 
   return <StrictBackgroundImage src={src} Tag={Tag} {...props} />
@@ -36,7 +39,12 @@ const BackgroundImage: React.FC<Props> = ({ src, Tag = 'div', ...props }) => {
 
 export default BackgroundImage
 
-const StrictBackgroundImage: React.FC<StrictProps> = ({ src, Tag, style, ...props }) => {
+const StrictBackgroundImage: React.FC<StrictProps> = ({
+  src,
+  Tag,
+  style,
+  ...props
+}) => {
   const { svg, image } = useImageData(src)
 
   if (svg) {
@@ -45,9 +53,9 @@ const StrictBackgroundImage: React.FC<StrictProps> = ({ src, Tag, style, ...prop
         {...props}
         style={{
           backgroundImage: `url("${svg.svg?.dataURI ?? undefined}")`,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'contain',
-          backgroundPosition: 'center',
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "contain",
+          backgroundPosition: "center",
           ...style,
         }}
       />
