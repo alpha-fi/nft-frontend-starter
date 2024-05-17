@@ -5,27 +5,43 @@
   "version": "0.1.0",
   "author": "Chad Ostrowski <chad@ahalabs.dev>",
   "dependencies": {
-    "@radix-ui/react-dropdown-menu": "0.1.6",
-    "@radix-ui/react-slider": "^0.1.4",
-    "add-to-calendar-button": "1.7.8",
-    "bn.js": "^5.2.0",
+    "@mintbase-js/wallet": "^0.6.0-beta.5",
+    "@near-wallet-selector/default-wallets": "^8.1.4",
+    "@near-wallet-selector/here-wallet": "^8.9.7",
+    "@near-wallet-selector/ledger": "^8.9.7",
+    "@near-wallet-selector/meteor-wallet": "^8.9.7",
+    "@near-wallet-selector/modal-ui": "^8.9.7",
+    "@near-wallet-selector/my-near-wallet": "^8.9.7",
+    "@near-wallet-selector/near-wallet": "^8.9.3",
+    "@near-wallet-selector/sender": "^8.9.7",
+    "@near-wallet-selector/wallet-connect": "^8.9.7",
+    "@radix-ui/react-dropdown-menu": "2.0.6",
+    "@radix-ui/react-slider": "^1.1.2",
+    "add-to-calendar-button": "2.6.15",
+    "bn.js": "^5.2.1",
+    "esm": "^3.2.25",
     "gatsby-background-image": "^1.6.0",
     "gatsby-transformer-video": "^0.6.0",
-    "gbimage-bridge": "^0.2.1",
+    "gbimage-bridge": "^0.2.2",
     "near-api-js": "AhaLabs/near-api-js#1.0.1",
     "near-units": "^0.1.9",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "react-helmet": "^6.1.0",
     "react-image-lightbox": "^5.1.4",
-    "react-markdown": "^8.0.0"
+    "react-markdown": "^9.0.1",
+    "sass": "^1.77.2",
+    "source-map": "^0.8.0-beta.0"
   },
   "devDependencies": {
-    "@types/bn.js": "^5.1.0",
-    "@types/react": "17",
-    "@types/react-dom": "17",
-    "@types/react-helmet": "^6.1.5",
-    "create-validator-ts": "^3.0.1",
+    "@types/bn.js": "^5.1.5",
+    "@types/react": "18",
+    "@types/react-dom": "18",
+    "@types/react-helmet": "^6.1.11",
+    "assert": "^2.1.0",
+    "buffer": "^6.0.3",
+    "create-validator-ts": "^6.0.0",
+    "crypto-browserify": "^3.12.0",
     "gatsby": "^4.12.1",
     "gatsby-plugin-dts-css-modules": "^2.2.0",
     "gatsby-plugin-extract-schema": "^0.2.1",
@@ -42,22 +58,26 @@
     "gatsby-transformer-inline-svg": "^1.1.0",
     "gatsby-transformer-json": "^4.5.0",
     "gatsby-transformer-sharp": "^4.5.0",
-    "node-sass": "6",
-    "prettier": "^2.5.1",
-    "typescript": "^4.5.4"
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "prettier": "^3.2.5",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "typescript": "^5.4.5",
+    "url": "^0.11.3"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "LGPL-3.0",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build": "npx --node-arg '-r esm' gatsby build",
+    "develop": "npx --node-arg '-r esm' gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "gatsby develop",
-    "serve": "gatsby serve",
+    "start": "npx --node-arg '-r esm' npm run develop",
+    "serve": "npx --node-arg '-r esm' gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "repository": {
     "type": "git",
@@ -65,5 +85,8 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "resolutions": {
+    "source-map": "^0.8.0-beta.0"
   }
 }

@@ -32,9 +32,7 @@ export default function ({ src, ...props }: ImageProps) {
   const imageData = image.childImageSharp?.gatsbyImageData
 
   if (imageData) {
-    return (
-      <GatsbyImage image={imageData} objectFit="contain" {...props} />
-    )
+    return <GatsbyImage image={imageData} objectFit="contain" {...props} />
   }
 
   return (

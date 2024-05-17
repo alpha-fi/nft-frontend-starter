@@ -28,26 +28,17 @@ interface Props {
   image?: string
 }
 
-function Seo({
-  description,
-  lang,
-  meta = [],
-  title,
-  favicon,
-  image,
-}: Props) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            author
-            siteUrl
-          }
+function Seo({ description, lang, meta = [], title, favicon, image }: Props) {
+  const { site } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          author
+          siteUrl
         }
       }
-    `
-  )
+    }
+  `)
 
   return (
     <Helmet
@@ -57,7 +48,7 @@ function Seo({
       title={title}
       link={
         favicon
-          ? [{ href: favicon, rel: 'icon', type: 'image/png' }]
+          ? [{ href: favicon, rel: "icon", type: "image/png" }]
           : undefined
       }
       meta={[
@@ -104,7 +95,7 @@ function Seo({
         {
           name: `twitter:image`,
           content: image || ``,
-        }
+        },
       ].concat(meta)}
     />
   )

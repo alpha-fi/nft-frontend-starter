@@ -5,7 +5,10 @@ import Nav from "../nav"
 import Footer from "../footer"
 import * as css from "./layout.module.css"
 
-const Layout: React.FC<{ style?: React.CSSProperties }> = ({ style, children }) => {
+const Layout: React.FC<{ style?: React.CSSProperties }> = ({
+  style,
+  children,
+}) => {
   return (
     <div style={style} className={css.wrap}>
       <div>
